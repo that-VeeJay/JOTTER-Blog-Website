@@ -1,0 +1,315 @@
+/* -------------------------------------------------------------------------- */
+/*                         Style rules for SECTION ONE                        */
+/* -------------------------------------------------------------------------- */
+
+.sectionOne {
+    padding-top: 20px;
+    position: relative;
+}
+
+.sectionOne__post {
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+}
+
+.sectionOne__card {
+    box-shadow: var(--shadow-1);
+    background-color: var(--color-white-100);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    position: absolute;
+    top: 450px;
+    left: 30px;
+    z-index: 1;
+    width: 50%;
+}
+
+.sectionOne__card-category {
+    width: max-content;
+    background-color: var(--color-blue-100);
+    color: var(--color-white-100);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: var(--category-font-size);
+}
+
+.sectionOne__card-title {
+    font-size: var(--h4);
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 3em;
+    line-height: 1.5em;
+    color: var(--color-dark-100);
+}
+
+.sectionOne__card-info-profile {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sectionOne__card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--color-dark-75);
+    font-size: 13px;
+}
+
+.sectionOne__card-info-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        Style Rules for Category List                       */
+/* -------------------------------------------------------------------------- */
+
+.category__list {
+    width: 100%;
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 10px
+}
+
+.cat_name {
+    background-color: var(--color-dark-75);
+    color: var(--color-white-100);
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+
+.cat_name:hover {
+    transform: scale(110%);
+    background-color: var(--color-dark-100);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         Style rules for SECTION TWO                        */
+/* -------------------------------------------------------------------------- */
+
+.latest-post {
+    padding-top: 30px;
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 15px 0;
+    gap: 25px;
+    align-items: center;
+}
+
+.sectionTwo__card {
+    border: solid 1px var(--color-dark-15);
+    width: 100%;
+    border-radius: 15px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hover-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.sectionTwo__card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.hover-image:hover .sectionTwo__card-image{
+    transform: scale(1.1);
+}
+
+.sectionTwo__card-category {
+    width: max-content;
+    background-color: var(--light-gray);
+    color: var(--color-blue-100);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: var(--category-font-size);
+    font-weight: 500;
+}
+
+.sectionTwo__card-title {
+    color: var(--color-dark-100);
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 4.5em;
+    line-height: 1.5em;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sectionTwo__card-info-profile {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+}
+
+.sectionTwo__card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.sectionTwo-card-info-detail {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.sectionTwo__card-info-name, .sectionTwo__card-info-date {
+    font-size: 13px;
+    color: var(--color-dark-50);
+    font-weight: 500;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#load-more-btn {
+    background-color: var(--color-dark-100);
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    color: var(--color-white-100);
+    margin: 20px 0;
+    font-family: 'Poppins';
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+    .sectionOne__card {
+        top: 350px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sectionOne__card {
+        top: 280px;
+        width: 500px;
+    }
+
+    .sectionOne__card-title {
+        font-size: var(--h5);
+        font-weight: 700;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionOne__card {
+        gap: 1px;
+        position: absolute;
+        top: 135px;
+        left: -10px;
+        width: 100%;
+        background-color: unset;
+        box-shadow: unset;
+    }
+
+    .sectionOne__card-title {
+        font-size: var(--h6);
+        font-weight: 500;
+        color: var(--color-white-100);
+
+    }
+
+    .sectionOne__card-info {
+        color: var(--color-white-100);
+    }
+
+    .latest-post {
+        padding-top: 20px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer__upperSection {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer__lowerSection {
+
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .category__list {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .sectionOne__post {
+        min-width: 450px;
+    }
+
+    .sectionOne__card {
+        width: 500px;
+        top: 120px
+    }
+
+}
+
+@media (max-width: 410px) {
+    .sectionOne {
+        left: 10px;
+    }
+    .sectionOne__card {
+        width: 500px;
+        top: 110px
+    }
+}

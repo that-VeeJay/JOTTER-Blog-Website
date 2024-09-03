@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --color-white-100: rgba(255, 255, 255, 1);
+    --color-white-50: rgba(255, 255, 255, 0.50);
+    --color-dark-100: rgba(30,32,30, 1);
+    --color-dark-75: rgba(30,32,30, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-color: #EDF2F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register__card {
+    background-color: var(--color-white-100);
+    box-shadow:
+        3.9px 4.3px 17.2px rgba(0, 0, 0, 0.006),
+        9.9px 10.9px 43.4px rgba(0, 0, 0, 0.009),
+        20.2px 22.2px 88.6px rgba(0, 0, 0, 0.011),
+        41.6px 45.6px 182.5px rgba(0, 0, 0, 0.014),
+        114px 125px 500px rgba(0, 0, 0, 0.02);
+    padding: 1.5rem;
+    height: max-content;
+    width: 80%;
+    max-width: 350px;
+    min-width: 250px;
+
+}
+
+.register__card--header {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+hr {
+    margin: 12px 0;
+    opacity: 50%;
+}
+
+.register__card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    padding: 0.6rem;
+    border: none;
+    width: 100%;
+}
+
+input:focus {
+    border: none;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+.input__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.input__group--icon {
+    width: 5%;
+    position: relative;
+    opacity: 60%;
+}
+
+.toggle__icon {
+    width: 5.5%;
+    opacity: 60%;
+    position: absolute;
+    right: 0;
+}
+
+.register__card--button {
+    padding: 15px;
+    color: var(--color-white-100);
+    background-color: var(--color-dark-100);
+    border: none;
+    border-radius: 10px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.login__option {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.login__option a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--color-dark-100);
+}
+
+
+.forgot__password {
+    text-align: end;
+    text-decoration: none;
+    color: var(--color-dark-100);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.forgot__password--text {
+    font-size: 0.8rem;
+    color: var(--color-dark-75);
+    margin-bottom: 20px;
+}
+
+/* Register Message */
+.success__message, .failed__message {
+    background-color: rgb(91, 203, 111);
+    border: solid 2px rgb(41, 154, 84);
+    padding: 10px;
+    color: var(--color-white-100);
+    margin: 15px 0;
+}
+
+.failed__message {
+    background-color: rgb(255, 108, 108);
+    border: solid 2px rgb(218, 59, 59);
+}

@@ -1,0 +1,699 @@
+body {
+    overflow-y: hidden;
+    font-family: 'Poppins';
+}
+
+button {
+    font-family: 'Poppins';
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               PROFILE STYLES                               */
+/* -------------------------------------------------------------------------- */
+
+.profile-container {
+    max-width: 800px;
+    margin: auto;
+    width: 100%;
+    padding: 20px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #fff;
+    box-shadow: -4px 9px 83px -32px rgba(0,0,0,0.79);
+}
+
+.profile-name {
+    display: flex;
+    gap: 10px;
+}
+
+.profile-first-name, .profile-last-name {
+    font-size: var(--h4);
+    font-weight: 600;
+}
+
+.profile-bio {
+    font-size: 0.8rem;
+    color: var(--color-dark-75);
+    text-align: center;
+    width: 50%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                POSTS STYLES                                */
+/* -------------------------------------------------------------------------- */
+
+.profile-posts-header {
+    font-size: 0.9rem;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 15px;
+}
+
+.profile-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto; /* Ensure scrollbar appears */
+    max-height: 600px; /* Adjust height as needed */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f0f0f0;
+}
+
+.post-item {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.three-dots {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 100;
+    filter: invert(1);
+}
+
+.post-title {
+    position: absolute;
+    color: #fff;
+    font-size: 0.9rem;
+    bottom: 5px;
+    left: 10px;
+    right: 10px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.post-item:hover .post-image {
+    filter: brightness(50%);
+}
+
+.post-item:hover .post-title {
+    opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          Post Pop Up Modal Styles                          */
+/* -------------------------------------------------------------------------- */
+
+.pop_modal {
+    display: none;
+    position: absolute;
+    width: 100px;
+    background-color: rgb(54, 54, 54);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 15px;
+}
+
+.pop-modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: var(--color-white-100);
+}
+
+.pop-edit, .pop-delete {
+    background-color: rgb(54, 54, 54);
+    font-size: 0.8rem;
+    border: none;
+    padding: 5px;
+    color: white;
+}
+
+.pop-delete {
+    color: red;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          EDIT PROFILE MODAL STYLES                         */
+/* -------------------------------------------------------------------------- */
+
+.edit-profile-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.704);
+}
+
+.edit-profile-modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--color-white-100);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    border-radius: 8px;
+    position: relative;
+    top: -100px;
+}
+
+.close-edit-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-edit-modal:hover,
+.close-edit-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content .image {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content .profile__picture {
+    display: block;
+    width: 100%;
+    background-color: var(--light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--color-dark-100);
+    text-align: center;
+}
+
+.modal-content .input__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 8px;
+}
+
+.modal-content .save__btn {
+    padding: 15px;
+    color: var(--color-white-100);
+    background-color: var(--color-blue-100);
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    align-self: flex-end;
+}
+
+.modal-content .update__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#bio__text-area {
+    resize: none;
+}
+
+#counter {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            ADD POST MODAL STYLES                           */
+/* -------------------------------------------------------------------------- */
+
+.postModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.704);
+}
+
+.post-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--color-white-100);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 8px;
+    position: relative;
+    top: -100px;
+}
+
+.modalClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modalClose:hover,
+.modalClose:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.post-modal-content .image {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-modal-content .thumbnail {
+    display: block;
+    width: 100%;
+    background-color: var(--light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--color-dark-100);
+    text-align: center;
+}
+
+.post-modal-content .input__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 8px;
+}
+
+.post-modal-content .save__btn {
+    padding: 15px;
+    color: var(--color-white-100);
+    background-color: var(--color-blue-100);
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    align-self: flex-end;
+}
+
+.post-modal-content .update__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#post-content {
+    resize: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           EDIT POST MODAL STYLES                           */
+/* -------------------------------------------------------------------------- */
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    border-radius: 4px;
+    width: 100px;
+    border-radius: 12px;
+}
+
+.edit-modal-content {
+    background-color: var(--color-dark-100);
+    margin: 0;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.modal-body {
+    width: 100%;
+}
+
+.modal-body button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: var(--color-dark-100);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#deletePostBtn {
+    color: red;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Update Post Form Modal                           */
+/* -------------------------------------------------------------------------- */
+
+#modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
+
+}
+
+.edit-post-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 500px;
+    width: 90%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ep__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.ep__header h3 {
+    margin: 0;
+}
+
+.modalClose {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.ep__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.ep__form input, .ep__form textarea, .ep__form select {
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+}
+
+.ep__input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Display the modal when open */
+.modal-overlay.open {
+    display: flex;
+}
+
+.ep__submit-changes {
+    background-color: var(--color-blue-100);
+    color: var(--color-white-100);
+    border-radius: 12px;
+    border: none;
+    width: 140px;
+    font-weight: 600;
+    padding: 15px 10px;
+    margin-left: auto;
+}
+
+#edit-content {
+    height: 200px;
+    resize: none;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                               FLOATING BUTTON                              */
+/* -------------------------------------------------------------------------- */
+
+@-webkit-keyframes come-in {
+  0% {
+    -webkit-transform: translatey(100px);
+            transform: translatey(100px);
+    opacity: 0;
+  }
+  30% {
+    -webkit-transform: translateX(-50px) scale(0.4);
+            transform: translateX(-50px) scale(0.4);
+  }
+  70% {
+    -webkit-transform: translateX(0px) scale(1.2);
+            transform: translateX(0px) scale(1.2);
+  }
+  100% {
+    -webkit-transform: translatey(0px) scale(1);
+            transform: translatey(0px) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes come-in {
+  0% {
+    -webkit-transform: translatey(100px);
+            transform: translatey(100px);
+    opacity: 0;
+  }
+  30% {
+    -webkit-transform: translateX(-50px) scale(0.4);
+            transform: translateX(-50px) scale(0.4);
+  }
+  70% {
+    -webkit-transform: translateX(0px) scale(1.2);
+            transform: translateX(0px) scale(1.2);
+  }
+  100% {
+    -webkit-transform: translatey(0px) scale(1);
+            transform: translatey(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+.floating-container {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    right: 0;
+    margin: 35px 25px;
+}
+.floating-container:hover {
+    height: 300px;
+}
+.floating-container:hover .floating-button {
+    -webkit-transform: translatey(5px);
+            transform: translatey(5px);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.floating-container:hover .element-container .float-element:nth-child(1) {
+    -webkit-animation: come-in 0.4s forwards 0.2s;
+            animation: come-in 0.4s forwards 0.2s;
+}
+.floating-container:hover .element-container .float-element:nth-child(2) {
+    -webkit-animation: come-in 0.4s forwards 0.4s;
+            animation: come-in 0.4s forwards 0.4s;
+}
+.floating-container:hover .element-container .float-element:nth-child(3) {
+    -webkit-animation: come-in 0.4s forwards 0.6s;
+            animation: come-in 0.4s forwards 0.6s;
+}
+.floating-container .floating-button {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background: var(--color-blue-100);
+    bottom: 0;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+    line-height: 65px;
+    text-align: center;
+    font-size: 23px;
+    z-index: 100;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.floating-container .float-element {
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    line-height: 50px;
+    z-index: 0;
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+}
+.floating-container .float-element .material-icons {
+    vertical-align: middle;
+    font-size: 16px;
+}
+.floating-container .float-element:nth-child(1) {
+    background: #42A5F5;
+    box-shadow: 0 20px 20px -10px rgba(66, 165, 245, 0.5);
+}
+.floating-container .float-element:nth-child(2) {
+    background: #4CAF50;
+    box-shadow: 0 20px 20px -10px rgba(76, 175, 80, 0.5);
+}
+.floating-container .float-element:nth-child(3) {
+    background: #FF9800;
+    box-shadow: 0 20px 20px -10px rgba(255, 152, 0, 0.5);
+    cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   TOOLTIP                                  */
+/* -------------------------------------------------------------------------- */
+
+.float-element {
+    position: relative;
+    display: inline-block;
+}
+
+.float-element[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%;
+    left: -160%;
+    transform: translate(-10px, -50%);
+    background-color: var(--color-dark-100);
+    color: #fff;
+    padding: 0 5px;
+    border-radius: 5px;
+    width: 75px;
+    height: 50px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.float-element:hover[data-tooltip]::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+    .modal-content {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .edit-profile-modal .modal-content {
+        width: 50%;
+        top: 0px
+    }
+
+    .post-modal-content {
+        top: 0px;
+        width: 60%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .profile__details .bio{
+        width: 60%;
+    }
+
+    .edit-profile-modal .modal-content {
+        width: 60%;
+        top: 150px;
+    }
+
+    .post-modal-content {
+        width: 60%;
+        top: 100px
+    }
+}
+
+@media (max-width: 568px) {
+    .edit-profile-modal .modal-content {
+        width: 80%;
+    }
+
+    .post-modal-content {
+        width: 80%;
+    }
+}

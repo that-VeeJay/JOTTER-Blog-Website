@@ -1,0 +1,41 @@
+.logos {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+}
+
+.tech_logo {
+    width: 50px;
+
+}
+
+.php{
+    width: 75px;
+    filter: brightness(0%);
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+}
+
+.msg {
+    width: 50%;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+@media (max-width: 1000px) {
+    .msg {
+        width: 75%;
+        font-size: 1.3rem;
+
+    }
+
+}

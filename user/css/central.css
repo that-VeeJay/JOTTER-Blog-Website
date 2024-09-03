@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+:root {
+    --h1: 40px;
+    --h2: 32px;
+    --h3: 28px;
+    --h4: 24px;
+    --h5: 20px;
+    --h6: 16px;
+
+    --ls: 3px;
+    --category-font-size: 12px;
+    --light-gray: rgba(233, 233, 233, 0.705);
+
+    --color-dark-100: rgba(33, 37, 41, 1);
+    --color-dark-75: rgba(33, 37, 41, 0.75);
+    --color-dark-50: rgba(33, 37, 41, 0.50);
+    --color-dark-25: rgba(33, 37, 41, 0.25);
+    --color-dark-15: rgba(33, 37, 41, 0.15);
+
+    --color-white-100: rgba(255, 255, 255, 1);
+    --color-white-75: rgba(255, 255, 255, 0.75);
+    --color-white-50: rgba(255, 255, 255, 0.50);
+    --color-white-25: rgba(255, 255, 255, 0.25);
+
+    --color-blue-100: rgba(75, 107, 251, 1);
+    --color-blue-75: rgba(75, 107, 251, 0.75);
+    --color-blue-50: rgba(75, 107, 251, 0.50);
+    --color-blue-25: rgba(75, 107, 251, 0.25);
+
+    --shadow-1: 3px 4px 12px 1px rgba(0, 0, 0, 0.15);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        Clear browser default styles                        */
+/* -------------------------------------------------------------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body, input, textarea, select {
+    font-family: 'Poppins';
+}
+
+/* -------------------------------------------------------------------------- */
+/*                       Style rules for COMMON CLASSES                       */
+/* -------------------------------------------------------------------------- */
+.container {
+    max-width: 1140px;
+    margin: auto;
+    width: 100%;
+    /* min-width: 500px; */
+}
+
+.hero {
+    background-color: var(--color-white-100);
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Style rules for NAVBAR                           */
+/* -------------------------------------------------------------------------- */
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.navbar__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar__logo-img {
+    max-width: 50px;
+    cursor: pointer;
+}
+
+.logo__link .navbar__logo-text {
+    font-size: var(--h4);
+    color: var(--color-dark-100);
+    letter-spacing: var(--ls);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search__bar {
+    background-color: var(--light-gray);
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    width: 25%;
+}
+
+.search__bar:focus {
+    outline: none;
+}
+
+.navbar__profile {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.navbar__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    font-weight: 500;
+}
+
+[class ^="navbar__menu-"] {
+    text-decoration: none;
+    color: var(--color-dark-100);
+    font-size: var(--h6);
+}
+
+.navbar__icon {
+    display: none;
+    font-size: 25px;
+}
+
+.sub__menu {
+    background-color: var(--color-dark-100);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 50px;
+    position: absolute;
+    top: 80%;
+    right: 0;
+    z-index: 1;
+    border-radius: 10px;
+    display: none;
+}
+
+.sub__menu--toggle {
+    display: flex;
+}
+
+.sub__menu a {
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+.sub__menu hr {
+    margin: 0px 0;
+    opacity: 50%;
+}
+
+.sub__menu--profile {
+    color: var(--color-white-100);
+}
+
+.sub__menu--logout {
+    color: red;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         Style rules for SEARCH BAR                         */
+/* -------------------------------------------------------------------------- */
+
+.search-container {
+    width: 30%;
+    position: relative;
+}
+
+#search-input {
+    padding: 10px;
+    background-color: rgb(215, 215, 215);
+    border: none;
+    width: 100%;
+}
+
+.results-dropdown {
+    height: max-content;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.result-data {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Style rules for FOOTER                           */
+/* -------------------------------------------------------------------------- */
+
+.footerWrapper {
+    background-color: var(--light-gray);
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    font-size: .7rem;
+}
+
+.footer__upperSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.footer__upperSection--about {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer__upperSection--quickLinks a {
+    text-decoration: none;
+    color: var(--color-dark-75);
+}
+
+hr {
+    margin: 30px 0;
+}
+
+.footer__upperSection--quickLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__lowerSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+
+}
+
+.footer__lowerSection--brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand--logo {
+    transform: scale(75%);
+    opacity: 50%;
+}
+
+.brand--name {
+    font-size: var(--h5);
+}
+
+.footer__lowerSection--policy {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 740px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 500px;
+    }
+
+    .navbar__menu, .navbar__profile {
+        display: none;
+    }
+
+    .navbar__icon {
+        display: block;
+    }
+
+    .sub__menu {
+        display: none;
+    }
+
+    .search-container {
+        display: none;
+    }
+}
+
+@media (max-width: 568px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .hero {
+        width: 500px;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+}
